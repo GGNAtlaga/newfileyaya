@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .dropbtn{
+            position: relative;
+            background-color: whitesmoke;
+            color:grey;
+       display: inline-block;
+           
+            cursor: pointer;
+
+            height: auto;
+            width: 100px;
+            transition:all 1s ease-in-out;
+        }
+        .drop-items{
+          
+           
+            background-color: whitesmoke;
+            color:grey;;
+            display: block;
+            width: 100%;
+          
+            box-sizing: border-box;
+            display: none;
+        }
+        .drop-items a {
+            display: block;
+            
+            text-decoration: none;
+            color:rgb(44, 43, 43);
+            padding: .5em;
+        }
+       
+        .drop-items a:hover{
+            background:rgb(143, 142, 142) ;
+            color:rgb(252, 251, 251);
+        }
+        .show{
+display: block;
+        }
+        .result {
+            background:rgb(26, 25, 25) ;
+            color:rgb(19, 194, 62);
+            padding: .5em;
+        
+        }
+    </style>
+    <div class="dropbtn" data-set="btn">
+        <div class="result"data-set="btn">ANYTHING</div>
+        <div class="drop-items">
+            <a href="#"data-id="Anything">Anything</a>
+            <a href="#"data-id="item1">Item1</a>
+            <a href="#"data-id="item2">Item2</a>
+            <a href="#"data-id="item3">Item3</a>
+        </div>
+    </div>
+
+    <script>
+        const dropbtn = document.querySelector(".drop-items");
+        const dropbtn2 = document.querySelector(".dropbtn");
+        dropbtn.addEventListener("click",assign);
+        
+        dropbtn2.addEventListener("mouseover",hoverrr);
+        dropbtn2.addEventListener("mouseout",hoverout);
+function assign(e){
+    const outres = document.querySelector(".result");
+   
+if(e.target.dataset.id){
+   
+    const ee = e.target.dataset.id;
+   
+ 
+    outres.innerHTML = ee;
+    dropbtn.classList.remove("show");
+}
+
+}
+function hoverrr(e){
+   
+    if(e.target.dataset){
+        dropbtn.classList.add("show");
+        console.log("show");
+    }
+    console.log(e.currentTarget);
+}
+function hoverout(){
+    dropbtn.classList.remove("show");
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let myobj = {
+            "22":{
+                "tracks": 2
+
+            },
+            "23":{
+                "tracks": 2,
+                "solo":"umay na"
+
+            }
+
+        };
+        function update (id ,prop ,val){
+            let bb = myobj[id][prop] = val;
+
+            return bb;
+        }
+        function search (search){
+            if(myobj.hasOwnProperty(search)){
+                return myobj[search];
+            }
+            else{
+                return "wala";
+            }
+        }
+        console.log(search("22"));
+      
+       console.log(update("22","tracks2","bago to"));
+       delete myobj["22"]["tracks"];
+       console.log(myobj);
+     
+    </script>
+</body>
+</html>

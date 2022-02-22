@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 60vh;
+            width: 50vw;
+            border: black double 2px;
+            background-color: rgba(10, 220, 139, 0.097);
+            
+        }
+        .login-data{
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            padding: 1em;
+            position: relative;
+        }
+        label , button{
+            font-size: 10px;
+            
+        }
+        .errors{
+           
+            font-size: 8px;
+            width: 100% ;
+            position: absolute;
+            top: 78%;
+
+
+        }
+
+    </style>
+    <div class="login-container">
+        
+        <form  action="index.html">
+           
+            <div class="login-data">
+               <label for="email">Email:</label> 
+               <input type="email" name="email" id="email" required>
+               <div id="ere" class="errors"></div>
+            </div>
+            <div class="login-data">
+                <label for="pass">Password:</label> 
+                <input type="password" name="pass" id="password" required>
+                <div id="erp" class="errors"></div>
+             </div>
+             <button id="submit">Sign In</button>
+        </form>
+
+    </div>
+    <script>
+        //referencing
+        const emailv = document.querySelector("#email");
+        const passwordv = document.querySelector("#password");
+        const form = document.querySelector("form");
+       
+        const ere = document.querySelector("#ere");
+        const erp = document.querySelector("#erp");
+
+        
+        form.addEventListener("submit",function (e) {let emailm = [];
+            let passwordm = [];
+         
+            if(emailv.value.length <= 15){
+            emailm.push("invalid email must be longer than 5 characters");
+            emailv.style.border = "2px solid red";
+        }
+        else{
+            emailv.style.border = "2px solid green";
+          
+           
+        }
+        if(passwordv.value.length <= 5){
+            passwordm.push("invalid password must be longer than 5 characters");
+            passwordv.style.border = "2px solid red";
+
+        }else{
+            passwordv.style.border = "2px solid green";
+            
+           
+        }
+
+        if(emailm.length > 0 || passwordm.length > 0){
+            
+            ere.innerHTML = emailm.join('');
+            erp.innerHTML = passwordm.join('');
+           
+            if(ere.textContent == ""){
+                ere.innerHTML = "valid email";
+               ere.style.color="green";
+            }
+            else{     ere.style.color="red";
+
+            }
+            if(erp.textContent == ""){
+                erp.innerHTML = "valid password";
+                erp.style.color="green";
+            }
+            else{
+                erp.style.color="red";
+            }
+            e.preventDefault();
+        }
+      
+        
+
+        
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .backgfill{
+            height: 20px;
+            width: 200px;
+            background-color: gold;
+            padding: .1em;
+          box-shadow:0px 0px 5px black ;
+            border-radius: 50px;
+        }
+        .nsidefill{
+            height: 20px;
+            width: 0px;
+            background-color:silver;
+            border-radius: 50px;
+        }
+    </style>
+    <div class="backgfill">
+        <div class="nsidefill"></div>
+    </div>
+    <script>
+        const nside = document.querySelector(".nsidefill");
+        const click = document.querySelector(".backgfill");
+        let a = 0;
+        click.addEventListener("click",function(){
+         const aa =   setInterval(function(){
+               
+              
+             
+             if(a>200){
+                 a=0;
+             }else{       a+=2;
+             nside.style.width =`${a}px`;}
+            
+            }
+                ,20
+            );
+            
+        });
+
+    </script>
+</body>
+</html>

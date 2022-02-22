@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            display: flex;
+            height: 100vh;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+            margin: 0%;
+            --primary:thistle;
+            --font1:black;
+            --trans:1s;
+          
+            background-color: var(--primary);
+
+            transition:var(--trans);
+        }
+        .dark{
+            --primary:#333;
+            --font1:whitesmoke;
+            --rotate:180deg;
+        }
+        .mid{
+            transform:rotate(0deg);
+            position: fixed;
+          top:5px;
+            height: 250vh;
+            width: 100vw;
+            z-index: -1;
+        display:flex;
+        justify-items: center;
+        align-items: center;
+        flex-direction: column;
+        transition:var(--trans);
+        
+        }
+        .sun,.moon{
+          position: absolute;
+            height: 40px;
+            width:40px;
+            border-radius: 50px;
+        }
+        .sun{
+            background:linear-gradient(black, white);
+            bottom: 5px;
+        }
+        .moon{
+            background:linear-gradient(rgb(253, 253, 50), rgb(255, 255, 255));
+          top:5px;
+        }
+        h1{
+            color:var(--font1);
+            text-shadow:rgba(255, 255, 255, 0.268) 0px 0px 40px;
+
+            transition:var(--trans);
+        }
+
+    </style>
+  
+        <h1>Theme Swapper</h1>
+        <button id="btn">Swap theme</button>
+  
+    <div class="mid">
+
+    <div class="sun"></div>
+    <div class="moon"></div>
+
+    </div>
+    <script>
+        const buttton = document.querySelector("#btn");
+        const rotator = document.querySelector(".mid");
+        let nro = 0;
+        buttton.addEventListener("click",()=>{
+            document.body.classList.toggle("dark");      
+            nro -= 180;
+            rotator.style.transform = `rotate(${nro}deg)`;
+        });
+
+    </script>
+    
+</body>
+</html>
